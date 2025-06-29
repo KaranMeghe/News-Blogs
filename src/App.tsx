@@ -1,10 +1,12 @@
 /** @format */
-
+import { News } from './Components/index';
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <div className='container'>
+      <div className='news-blogs-app'>
+        <News />
+      </div>
+    </div>
   );
 }
 
