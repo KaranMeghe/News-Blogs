@@ -1,5 +1,10 @@
 /** @format */
 
 import News from './News/News';
+import Header from './Header/Header';
+import LeftSideBar from './Sidebar/LeftSideBar';
+import Blogs from './Blogs/Blogs';
+import RightSideBar from './Sidebar/RightSideBar';
+import Footer from './Footer/Footer';
 
-export { News };
+export { News, Header, LeftSideBar, RightSideBar, Blogs, Footer };
