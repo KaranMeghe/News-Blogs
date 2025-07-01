@@ -1,10 +1,12 @@
 /** @format */
 
+import { NewsHeadline, NewsBox } from '../index';
+
 const News = () => {
   return (
-    <section className='bg-pink-500 w-[70%]'>
-      <div className='headline'>Headline</div>
-      <div className='news-grid'>News Grid</div>
+    <section className='w-[70%] flex flex-col gap-2'>
+      <NewsHeadline />
+      <NewsBox />
     </section>
   );
 };

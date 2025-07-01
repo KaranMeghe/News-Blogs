@@ -4,7 +4,7 @@ import { Calender, Weather } from '../../UI';
 
 const RightSideBar = () => {
   return (
-    <aside className='w-[25%] h-full bg-gray-400 '>
+    <aside className='w-[25%] h-full flex flex-col gap-4'>
       <Weather />
       <Calender />
     </aside>
