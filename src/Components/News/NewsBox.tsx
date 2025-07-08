@@ -4,8 +4,8 @@ import { useNewsData } from '../../Hooks/useNewsData';
 import NewsCard from './NewsCard';
 import NewsError from './NewsError';
 
-const NewsBox = ({ category }: { category: string }) => {
-  const { isLoading, data: newsData, error } = useNewsData(category);
+const NewsBox = () => {
+  const { isLoading, data: newsData, error } = useNewsData();
 
   if (error) return <NewsError />;
 

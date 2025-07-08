@@ -5,7 +5,7 @@ import { newsCategories } from '../../Constants/Categories';
 import { useNewsData } from '../../Hooks/useNewsData';
 
 const Categories = () => {
-  const { handleCategoryClick } = useNewsData(null);
+  const { handleCategoryClick } = useNewsData();
 
   return (
     <nav className='w-full h-[55%] bg-[#111214] rounded-md flex flex-col px-4 py-5 overflow-hidden'>

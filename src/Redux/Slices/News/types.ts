@@ -1,7 +1,8 @@
 /** @format */
 
 export interface NewsCategory {
-  category: string;
+  category: string | null;
+  search: string | null;
 }
 interface NewsSource {
   name: string;

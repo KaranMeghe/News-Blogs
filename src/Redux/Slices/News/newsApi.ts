@@ -14,8 +14,20 @@ export const newsApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    fetchNewsArticles: builder.query<NewsApiResponse, string | null>({
-      query: (category) => `top-headlines?category=${category}&lang=en&apikey=${API_KEY}`,
+    fetchNewsArticles: builder.query<NewsApiResponse, { category?: string | null; search?: string | null }>({
+      query: ({ category, search }) => {
+        if (search) {
+          return {
+            url: `/search?q=${search}&lang=en&apikey=${API_KEY}`,
+            method: 'GET',
+          };
+        }
+
+        return {
+          url: `/top-headlines?category=${category || 'general'}&lang=en&apikey=${API_KEY}`,
+          method: 'GET',
+        };
+      },
     }),
   }),
 });
