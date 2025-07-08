@@ -1,10 +1,10 @@
 /** @format */
 
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { NewsState } from './types';
+import type { NewsCategory } from './types';
 
-const initialState: NewsState = {
-  headline: null,
+const initialState: NewsCategory = {
+  category: 'genral',
 };
 
 const newsSlice = createSlice({
@@ -12,11 +12,11 @@ const newsSlice = createSlice({
   initialState,
 
   reducers: {
-    setHeadline: (state, action: PayloadAction<string | null>) => {
-      state.headline = action.payload;
+    setCategory: (state, action: PayloadAction<string>) => {
+      state.category = action.payload;
     },
   },
 });
 
-export const { setHeadline } = newsSlice.actions;
+export const { setCategory } = newsSlice.actions;
 export const newsReducer = newsSlice.reducer;

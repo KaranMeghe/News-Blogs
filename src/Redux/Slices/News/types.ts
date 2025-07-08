@@ -1,7 +1,7 @@
 /** @format */
 
-export interface NewsState {
-  headline: string | null;
+export interface NewsCategory {
+  category: string;
 }
 interface NewsSource {
   name: string;

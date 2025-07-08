@@ -4,8 +4,8 @@ import { useNewsData } from '../../Hooks/useNewsData';
 import NewsError from './NewsError';
 import { openInNewsTab } from '../../utils/openInNewsTab';
 
-const NewsHeadline = () => {
-  const { data, error, isLoading } = useNewsData();
+const NewsHeadline = ({ category }: { category: string }) => {
+  const { data, error, isLoading } = useNewsData(category);
   if (!data?.articles?.length) return null;
   const newsHeadline = data?.articles[0];
 

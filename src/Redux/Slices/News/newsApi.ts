@@ -14,8 +14,8 @@ export const newsApi = createApi({
   }),
 
   endpoints: (builder) => ({
-    fetchNewsArticles: builder.query<NewsApiResponse, void>({
-      query: () => `top-headlines?category=genral&lang=en&apikey=${API_KEY}`,
+    fetchNewsArticles: builder.query<NewsApiResponse, string | null>({
+      query: (category) => `top-headlines?category=${category}&lang=en&apikey=${API_KEY}`,
     }),
   }),
 });
