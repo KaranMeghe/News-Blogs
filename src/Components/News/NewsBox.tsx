@@ -1,62 +1,21 @@
 /** @format */
 
-import techImg from '../../assets/images/tech.jpg';
-import sportImg from '../../assets/images/sports.jpg';
-import sciImg from '../../assets/images/science.jpg';
-import healthImg from '../../assets/images/health.jpg';
-import worldImg from '../../assets/images/world.jpg';
-import { FaBookmark } from 'react-icons/fa';
+import { useNewsData } from '../../Hooks/useNewsData';
+import NewsCard from './NewsCard';
+import NewsError from './NewsError';
 
-const NewsBox = () => {
+const NewsBox = ({ category }: { category: string }) => {
+  const { isLoading, data: newsData, error } = useNewsData(category);
+
+  if (error) return <NewsError />;
+
   return (
-    <article className='bg-[#111214] h-full rounded-md flex justify-around gap-8'>
-      <div>
-        <img src={techImg} />
-        <h3>
-          Lorem ipsum dolor sit amet.
-          <FaBookmark />
-        </h3>
-      </div>
-
-      <div>
-        <img src={techImg} />
-        <h3>
-          Lorem ipsum dolor sit amet.
-          <FaBookmark />
-        </h3>
-      </div>
-
-      <div>
-        <img src={techImg} />
-        <h3>
-          Lorem ipsum dolor sit amet.
-          <FaBookmark />
-        </h3>
-      </div>
-
-      <div>
-        <img src={techImg} />
-        <h3>
-          Lorem ipsum dolor sit amet.
-          <FaBookmark />
-        </h3>
-      </div>
-
-      <div>
-        <img src={techImg} />
-        <h3>
-          Lorem ipsum dolor sit amet.
-          <FaBookmark />
-        </h3>
-      </div>
-
-      <div>
-        <img src={techImg} />
-        <h3>
-          Lorem ipsum dolor sit amet.
-          <FaBookmark />
-        </h3>
-      </div>
+    <article className='h-[38%] overflow-y-auto bg-[#111214] rounded-md p-4 grid grid-cols-1 sm:grid-cols-2 gap-6 cursor-pointer'>
+      {isLoading ? (
+        <div className='col-span-full text-center text-4xl'>Loading...</div>
+      ) : (
+        newsData?.articles?.map((news, index) => <NewsCard key={index} news={news} />)
+      )}
     </article>
   );
 };
