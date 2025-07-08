@@ -12,7 +12,7 @@ const NewsHeadline = () => {
   if (error) return <NewsError />;
   return (
     <article
-      className='w-full h-[60%] mb-2 rounded-md relative overflow-hidden'
+      className='w-full h-[45%] mb-2 rounded-md relative overflow-hidden'
       onClick={() => openInNewsTab(newsHeadline?.url)}>
       {isLoading ? (
         <div className='absolute bottom-[50%] right-[50%]  text-center text-4xl'>Loading....</div>

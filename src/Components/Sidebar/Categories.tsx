@@ -5,12 +5,12 @@ import { newsCategories } from '../../Constants/Categories';
 
 const Categories = () => {
   return (
-    <nav className='w-full max-h-[80%] bg-[#111214] rounded-md flex flex-col px-4 py-5 overflow-hidden'>
+    <nav className='w-full h-[55%] bg-[#111214] rounded-md flex flex-col px-4 py-5 overflow-hidden'>
       <h2 className='text-3xl text-white font-semibold mb-4 text-center border-b border-gray-700 pb-2 tracking-wide'>
         CATEGORIES
       </h2>
 
-      <ul className='flex flex-col gap-3 items-center  overflow-y-auto pr-2 custom-scrollbar uppercase text-[#ddd]font-light text-xl text-center'>
+      <ul className='flex flex-col gap-6 items-center  overflow-y-auto pr-2 custom-scrollbar uppercase text-[#ddd]font-light text-xl text-center'>
         {newsCategories.map((news) => (
           <li key={news} className='hover:bg-[#22242a] rounded-md transition-colors cursor-pointer px-2'>
             {news}

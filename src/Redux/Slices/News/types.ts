@@ -7,7 +7,7 @@ interface NewsSource {
   name: string;
   url: string;
 }
-interface NewsArticle {
+export interface NewsArticle {
   title: string;
   description: string;
   content: string;
