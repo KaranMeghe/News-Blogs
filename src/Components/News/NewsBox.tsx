@@ -14,7 +14,7 @@ const NewsBox = () => {
       {isLoading ? (
         <div className='col-span-full text-center text-4xl'>Loading...</div>
       ) : (
-        newsData?.articles?.map((news, index) => <NewsCard key={index} news={news} />)
+        newsData?.articles?.map((news, index) => <NewsCard key={index} news={news} index={index} />)
       )}
     </article>
   );
