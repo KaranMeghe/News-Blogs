@@ -13,6 +13,10 @@ html {
   background: linear-gradient(to right, #b88efc, #6877f4);
 }
 
+.bg-button {
+  background: linear-gradient(to right, #4facfe, #b88efc);
+}
+
 .app-bg {
   background: #060709;
 }

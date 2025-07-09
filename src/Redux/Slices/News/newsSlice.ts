@@ -6,6 +6,7 @@ import type { NewsCategory } from './types';
 const initialState: NewsCategory = {
   category: 'genral',
   search: '',
+  modalIndex: null,
 };
 
 const newsSlice = createSlice({
@@ -19,8 +20,14 @@ const newsSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
+    clearSearch: (state, action: PayloadAction<string | null>) => {
+      state.search = action.payload;
+    },
+    toggleModal: (state, action: PayloadAction<number | null>) => {
+      state.modalIndex = action.payload;
+    },
   },
 });
 
-export const { setCategory, setSearch } = newsSlice.actions;
+export const { setCategory, setSearch, clearSearch, toggleModal } = newsSlice.actions;
 export const newsReducer = newsSlice.reducer;

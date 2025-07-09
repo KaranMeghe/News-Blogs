@@ -3,6 +3,7 @@
 export interface NewsCategory {
   category: string | null;
   search: string | null;
+  modalIndex: number | null;
 }
 interface NewsSource {
   name: string;
