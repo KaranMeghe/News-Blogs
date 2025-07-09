@@ -1,6 +1,5 @@
 /** @format */
 
-import { MdOutlineDisabledByDefault } from 'react-icons/md';
 import type { NewsArticle } from '../../Redux/Slices/News/types';
 import { formatNewsDate } from '../../utils/formatNewDate';
 import { openInNewsTab } from '../../utils/openInNewsTab';
