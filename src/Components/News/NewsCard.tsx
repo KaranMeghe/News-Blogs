@@ -1,19 +1,16 @@
 /** @format */
 
 import { FaBookmark } from 'react-icons/fa';
-import type { NewsArticle } from '../../Redux/Slices/News/types';
 import NewsModalBox from './NewsModalBox';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../Redux/store';
 import { useNewsData } from '../../Hooks/useNewsData';
-interface NewsCardProps {
-  news: NewsArticle;
-  index: number;
-}
+import type { NewsCardProps } from '../../Types/News';
+import NewsBookMark from './NewsBookMark';
 
 const NewsCard = ({ news, index }: NewsCardProps) => {
-  const modalIndex = useSelector((state: RootState) => state.news.modalIndex);
-  const { handleModalOpen, handleModalClose } = useNewsData();
+  const { modalIndex, isBookMarkOpen } = useSelector((state: RootState) => state.news);
+  const { handleModalOpen, handleModalClose, handleAddBookamrk } = useNewsData();
 
   return (
     <>
@@ -25,12 +22,16 @@ const NewsCard = ({ news, index }: NewsCardProps) => {
           <h3 className='text-lg text-white font-semibold line-clamp-2'>{news.title}</h3>
           <div className='flex justify-between items-center mt-2'>
             <p className='text-sm text-gray-400'>{new Date(news.publishedAt).toLocaleDateString()}</p>
-            <FaBookmark className='text-white cursor-pointer hover:text-yellow-400 transition-colors' />
+            <FaBookmark
+              className='text-white cursor-pointer hover:text-yellow-400 transition-colors'
+              onClick={() => handleAddBookamrk(news)}
+            />
           </div>
         </div>
       </div>
 
       {modalIndex === index && <NewsModalBox onClose={handleModalClose} news={news} />}
+      {isBookMarkOpen && <NewsBookMark />}
     </>
   );
 };

@@ -1,13 +1,8 @@
 /** @format */
 
-import type { NewsArticle } from '../../Redux/Slices/News/types';
 import { formatNewsDate } from '../../utils/formatNewDate';
 import { openInNewsTab } from '../../utils/openInNewsTab';
-
-interface NewsModalBoxProps {
-  onClose: () => void;
-  news: NewsArticle;
-}
+import type { NewsModalBoxProps } from '../../Types/News';
 
 const NewsModalBox = ({ onClose, news }: NewsModalBoxProps) => {
   const iso = news.publishedAt;

@@ -5,7 +5,7 @@ import { newsCategories } from '../../Constants/Categories';
 import { useNewsData } from '../../Hooks/useNewsData';
 
 const Categories = () => {
-  const { handleCategoryClick } = useNewsData();
+  const { handleCategoryClick, handleToggleBookmark } = useNewsData();
 
   return (
     <nav className='w-full h-[55%] bg-[#111214] rounded-md flex flex-col px-4 py-5 overflow-hidden'>
@@ -22,7 +22,9 @@ const Categories = () => {
             {category}
           </li>
         ))}
-        <li className='flex justify-center items-center w-full gap-4 p-2 hover:bg-[#22242a] rounded-md transition-colors border-t  border-zinc-400'>
+        <li
+          className='flex justify-center items-center w-full gap-4 p-2 hover:bg-[#22242a] rounded-md transition-colors border-t  border-zinc-400'
+          onClick={handleToggleBookmark}>
           Bookmark
           <span className=''>
             <FaBookmark />
