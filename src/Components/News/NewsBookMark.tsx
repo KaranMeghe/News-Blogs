@@ -6,7 +6,7 @@ import { useNewsData } from '../../Hooks/useNewsData';
 
 const NewsBookMark = () => {
   const { bookmark } = useSelector((state: RootState) => state.news);
-  const { handleToggleBookmark } = useNewsData();
+  const { handleToggleBookmark, handleDeleteBookMark } = useNewsData();
   return (
     <div className='fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50'>
       <div className='bg-[#1b1d21] text-white w-[90%] sm:w-[70%] md:w-[50%] lg:w-[50%] xl:w-[40%] h-[70%] p-6 rounded-2xl shadow-lg overflow-y-auto relative flex flex-col items-start gap-4'>
@@ -23,7 +23,10 @@ const NewsBookMark = () => {
             <div className='flex justify-between items-center w-full'>
               <p className='text-sm text-gray-200 line-clamp-3 pr-4'>{news.description}</p>
 
-              <button className='w-8 h-8 flex items-center justify-center text-xs transition' title='Remove'>
+              <button
+                className='w-8 h-8 flex items-center justify-center text-xs transition'
+                title='Remove'
+                onClick={() => handleDeleteBookMark(index)}>
                 ❌
               </button>
             </div>

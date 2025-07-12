@@ -6,6 +6,7 @@ export interface NewsCategory {
   modalIndex: number | null;
   bookmark: NewsArticle[] | null;
   isBookMarkOpen: boolean;
+  bookmarkIndex: number | null;
 }
 interface NewsSource {
   name: string;

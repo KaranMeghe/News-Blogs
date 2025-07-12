@@ -9,6 +9,7 @@ const initialState: NewsCategory = {
   modalIndex: null,
   bookmark: [],
   isBookMarkOpen: false,
+  bookmarkIndex: null,
 };
 
 const newsSlice = createSlice({
@@ -36,6 +37,12 @@ const newsSlice = createSlice({
     addBookMark: (state, action: PayloadAction<NewsArticle>) => {
       state.bookmark?.push(action.payload);
     },
+    // Delete BookMark
+    deleteBookmark: (state, action: PayloadAction<number | null>) => {
+      if (state.bookmark) {
+        state.bookmark = state.bookmark.filter((_, i) => i !== action.payload);
+      }
+    },
     // Toggle Bookmark Modal
     toggleBookmarkModal: (state) => {
       state.isBookMarkOpen = !state.isBookMarkOpen;
@@ -43,5 +50,6 @@ const newsSlice = createSlice({
   },
 });
 
-export const { setCategory, setSearch, clearSearch, toggleModal, addBookMark, toggleBookmarkModal } = newsSlice.actions;
+export const { setCategory, setSearch, clearSearch, toggleModal, addBookMark, toggleBookmarkModal, deleteBookmark } =
+  newsSlice.actions;
 export const newsReducer = newsSlice.reducer;
