@@ -4,6 +4,9 @@ export interface NewsCategory {
   category: string | null;
   search: string | null;
   modalIndex: number | null;
+  bookmark: NewsArticle[] | null;
+  isBookMarkOpen: boolean;
+  bookmarkIndex: number | null;
 }
 interface NewsSource {
   name: string;

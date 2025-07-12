@@ -1,9 +1,17 @@
 /** @format */
 import { useSelector, useDispatch } from 'react-redux';
 import { useFetchNewsArticlesQuery } from '../Redux/Slices/News/newsApi';
-import { clearSearch, setCategory, setSearch } from '../Redux/Slices/News/newsSlice';
+import {
+  addBookMark,
+  clearSearch,
+  deleteBookmark,
+  setCategory,
+  setSearch,
+  toggleBookmarkModal,
+} from '../Redux/Slices/News/newsSlice';
 import type { RootState } from '../Redux/store';
 import { toggleModal } from '../Redux/Slices/News/newsSlice';
+import type { NewsArticle } from '../Redux/Slices/News/types';
 
 export const useNewsData = () => {
   const dispatch = useDispatch();
@@ -28,5 +36,28 @@ export const useNewsData = () => {
     dispatch(toggleModal(null));
   };
 
-  return { data, error, isLoading, handleCategoryClick, handleSearchSubmit, handleModalOpen, handleModalClose };
+  const handleAddBookamrk = (news: NewsArticle) => {
+    dispatch(addBookMark(news));
+  };
+
+  const handleDeleteBookMark = (index: number) => {
+    dispatch(deleteBookmark(index));
+  };
+
+  const handleToggleBookmark = () => {
+    dispatch(toggleBookmarkModal());
+  };
+
+  return {
+    data,
+    error,
+    isLoading,
+    handleCategoryClick,
+    handleSearchSubmit,
+    handleModalOpen,
+    handleModalClose,
+    handleAddBookamrk,
+    handleToggleBookmark,
+    handleDeleteBookMark,
+  };
 };
