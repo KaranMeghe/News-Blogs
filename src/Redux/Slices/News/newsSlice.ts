@@ -35,8 +35,13 @@ const newsSlice = createSlice({
     },
     // Add BookMark
     addBookMark: (state, action: PayloadAction<NewsArticle>) => {
-      state.bookmark?.push(action.payload);
+      const isAlreadyBookmarked = state.bookmark?.some((article) => article.url === action.payload.url);
+
+      if (!isAlreadyBookmarked) {
+        state.bookmark?.push(action.payload);
+      }
     },
+
     // Delete BookMark
     deleteBookmark: (state, action: PayloadAction<number | null>) => {
       if (state.bookmark) {
