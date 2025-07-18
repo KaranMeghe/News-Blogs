@@ -3,6 +3,7 @@
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../Redux/store';
 import { useNewsData } from '../../Hooks/useNewsData';
+import { openInNewsTab } from '../../utils/openInNewsTab';
 
 const NewsBookMark = () => {
   const { bookmark } = useSelector((state: RootState) => state.news);
@@ -21,7 +22,9 @@ const NewsBookMark = () => {
             <img src={news.image} alt={news.title} className='w-28 h-20 object-cover rounded-md shadow-sm shrink-0' />
 
             <div className='flex justify-between items-center w-full'>
-              <p className='text-sm text-gray-200 line-clamp-3 pr-4'>{news.description}</p>
+              <div onClick={() => openInNewsTab(news.url)}>
+                <p className='text-sm text-gray-200 line-clamp-3 pr-4'>{news.description}</p>
+              </div>
 
               <button
                 className='w-8 h-8 flex items-center justify-center text-xs transition'
